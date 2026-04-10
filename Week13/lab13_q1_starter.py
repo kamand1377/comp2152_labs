@@ -38,7 +38,7 @@ def create_sample_data():
 #   Return a list of dictionaries (one per row)
 def load_findings(filename):
     with open(filename, "r") as f:
-        reader = csv.DictWriter(f)
+        reader = csv.DictReader(f)
         return list(reader) # Return a list of dictionaries
 
 
@@ -50,7 +50,7 @@ def count_by_field(findings, field):
     counts = {}
     for f in findings:
         val = f[field]
-        count[val] = counts.get(val, 0) + 1
+        counts[val] = counts.get(val, 0) + 1
     return counts
 
 
